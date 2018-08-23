@@ -38,6 +38,7 @@
 (indent-guide-global-mode)
 
 ;;Key bindings
+(define-key global-map (kbd "<S-down-mouse-1>") 'mouse-save-then-kill)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 ;;(define-key global-map (kbd "C-u C-c SPC") 'ace-jump-char-mode)
 ;;(define-key global-map (kbd "C-u C-u C-c SPC") 'ace-jump-line-mode)
@@ -57,13 +58,15 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'prog-mode-hook 'highlight-thing-mode)
 (add-hook 'prog-mode-hook #'smartparens-mode)
-
+(smart-tabs-insinuate 'c 'javascript)
+(smart-tabs-advice language-indent-line language-basic-offset)
 
 
 ;;JS settings
+(require 'indium)
 (add-hook 'js-mode-hook #'indium-interaction-mode)
 (js-indent-level 2)
-(smart-tabs-insinuate 'c 'javascript)
+(setq-default js2-basic-offset 2)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
