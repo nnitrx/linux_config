@@ -1,30 +1,25 @@
-;;DXC proxy settings
-(setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-	("http" . "web-proxy.houston.entsvcs.net:8080")))
-
 ;;Melpa settings
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
-;;(setq inferior-lisp-program "sbcl")
-;;(load (expand-file-name "~/quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "sbcl")
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
 
 ;;File settings
 (setq backup-inhibited t)
 (setq auto-save-default nil)
 
 ;;UI settings
-(load-theme 'solarized-light t)
+(load-theme 'zenburn t)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(set-face-attribute 'default nil :font "mononoki-9.5" )
-(set-frame-font "mononoki-9.5" nil t)
+;;(set-face-attribute 'default nil :font "mononoki-9.5" )
+;;(set-frame-font "mononoki-9.5" nil t)
 (sml/setup)
 (beacon-mode 1)
 (global-highlight-thing-mode)
@@ -58,12 +53,12 @@
 (add-hook 'prog-mode-hook 'highlight-thing-mode)
 (add-hook 'prog-mode-hook #'smartparens-mode)
 
-
-
 ;;JS settings
-(add-hook 'js-mode-hook #'indium-interaction-mode)
-(js-indent-level 2)
-(smart-tabs-insinuate 'c 'javascript)
+(require 'indium)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
+(add-hook 'js2-mode-hook #'indium-interaction-mode)
+(setq-default js2-basic-offset 2)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -77,5 +72,6 @@
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+					;
+					; If there is more than one, they won't work right.
  )
