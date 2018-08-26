@@ -30,7 +30,7 @@
 (yas-global-mode 1)
 (dumb-jump-mode)
 (global-aggressive-indent-mode 1)
-(indent-guide-Global-Mode)
+(indent-guide-global-mode)
 
 ;;Key bindings
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
