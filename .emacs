@@ -30,10 +30,9 @@
 (yas-global-mode 1)
 (dumb-jump-mode)
 (global-aggressive-indent-mode 1)
-(indent-guide-global-mode)
+(indent-guide-Global-Mode)
 
 ;;Key bindings
-(define-key global-map (kbd "<S-down-mouse-1>") 'mouse-save-then-kill)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 ;;(define-key global-map (kbd "C-u C-c SPC") 'ace-jump-char-mode)
 ;;(define-key global-map (kbd "C-u C-u C-c SPC") 'ace-jump-line-mode)
@@ -53,23 +52,12 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'prog-mode-hook 'highlight-thing-mode)
 (add-hook 'prog-mode-hook #'smartparens-mode)
-<<<<<<< HEAD
 
 ;;JS settings
 (require 'indium)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 (add-hook 'js2-mode-hook #'indium-interaction-mode)
-=======
-(smart-tabs-insinuate 'c 'javascript)
-(smart-tabs-advice language-indent-line language-basic-offset)
-
-
-;;JS settings
-(require 'indium)
-(add-hook 'js-mode-hook #'indium-interaction-mode)
-(js-indent-level 2)
->>>>>>> fef2cb25b5566d919b23478dd7ae0d3ca1c65455
 (setq-default js2-basic-offset 2)
 
 (custom-set-variables
