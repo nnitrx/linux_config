@@ -1,3 +1,5 @@
 [[ -f ~/.xmodmap ]] && xmodmap ~/.xmodmap
+compton &
+feh --bg-tile /home/nnitrx/Images/zentile2.png &
 urxvtd -q -f -o &
-exec sbcl --load ~/lisp/startstump.lisp
+sbcl --load ~/lisp/startstump.lisp

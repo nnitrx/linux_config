@@ -13,8 +13,12 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+#Needed to have emacsclient automatically start a daemon if one doesn't exist
+export ALTERNATE_EDITOR=""
+
 #Aliases
 alias ls="ls --color"
 alias la="ls -a"
 alias ll="ls -al"
 alias urxvt="urxvtc"
+alias emacs="emacsclient -c"

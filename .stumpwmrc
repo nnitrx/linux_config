@@ -1,31 +1,23 @@
 (in-package :stumpwm)
 
-(require :swank)
-(swank-loader:init)
-(swank:create-server :port 4004
-                     :style swank:*communication-style*
-                     :dont-close t)
-
-(define-key *top-map* (kbd "s-k") "move-focus up")
-(define-key *top-map* (kbd "s-j") "move-focus down")
-(define-key *top-map* (kbd "s-h") "move-focus left")
-(define-key *top-map* (kbd "s-l") "move-focus right")
-
-(define-key *top-map* (kbd "s-H") "prev-in-frame")
-(define-key *top-map* (kbd "s-L") "next-in-frame")
-
-(define-key *top-map* (kbd "C-s-k") "move-window up")
-(define-key *top-map* (kbd "C-s-j") "move-window down")
-(define-key *top-map* (kbd "C-s-h") "move-window left")
-(define-key *top-map* (kbd "C-s-l") "move-window right")
-
-(define-key *top-map* (kbd "M-s-h") "gprev")
-(define-key *top-map* (kbd "M-s-l") "gnext")
-
 (define-key *top-map* (kbd "s-RET") "run-shell-command urxvtc")
 (define-key *top-map* (kbd "s-r") "run-shell-command")
 
 (setq *ignore-wm-inc-hints* t)
-(set-font "-misc-proggytinyttsz-medium-r-normal--------iso8859-1")
 (set-bg-color "#3f3f3f")
 (set-fg-color "#dcdccc")
+
+(init-load-path "/home/nnitrx/.stumpwm.d/modules")
+
+(load-module "ttf-fonts")
+(set-font (make-instance 'xft:font :family "mononoki" :subfamily "Regular" :size 11.5 :antialias T))
+
+(load-module "battery-portable")
+(setf *screen-mode-line-format* "[^B%n^b] %W ^> ^B%B %d^b")
+(setf *time-modeline-string* "%a %b %e %l:%M %P")
+(mode-line)
+
+(load-module "amixer")
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "amixer-Master-1-")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "amixer-Master-1+")
+(define-key *top-map* (kbd "XF86AudioMute") "amixer-Master-toggle pulse")

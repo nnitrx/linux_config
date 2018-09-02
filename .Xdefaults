@@ -23,15 +23,16 @@ URxvt*color14: #93e0e3
 URxvt*color15: #ffffff
 
 URxvt.scrollBar: false
-URxvt.font: xft:Hack-Regular:pixelsize=12:autohint=true
-URxvt.boldFont: xft:Hack-Bold:pixelsize=12:weight=bold:autohint=true
-Emacs.font: Hack:pixelsize=12:antialias=true:hinting=true:hintstyle=4
-Emacs.fontBackend: xft
+URxvt.font: xft:mononoki:Regular:pixelsize=15:autohint=true
+URxvt.boldFont: xft:mononoki:Bold:pixelsize=15:autohint=true
+URxvt.letterSpace: -2
+
+Emacs.font: mononoki-11
 
 Xft.lcdfilter: lcddefault
 Xft.antialias: true
-Xft.autohint: 0
+Xft.autohint: 1
 Xft.hinting: true
-Xft.hintstyle: 3
+Xft.hintstyle: 4
 Xft.rgba: rgb
 Xft.dpi: 96
