@@ -1,18 +1,35 @@
 (in-package :stumpwm)
 
-(define-key *top-map* (kbd "s-RET") "run-shell-command urxvtc")
-(define-key *top-map* (kbd "s-r") "run-shell-command")
+(define-key *root-map* (kbd "c") "run-shell-command urxvtc")
+(define-key *root-map* (kbd "C-c") "run-shell-command urxvtc")
+(define-key *root-map* (kbd "C-e") "run-shell-command emacsclient -c")
+(define-key *root-map* (kbd "e") "run-shell-command emacsclient -c")
 
+(setq *shell-program* "/bin/dash")
 (setq *ignore-wm-inc-hints* t)
-(set-bg-color "#3f3f3f")
-(set-fg-color "#dcdccc")
+(set-bg-color "#002451")
+(set-fg-color "#ffffff")
+(set-focus-color "#ffffff")
+(set-unfocus-color "#002451")
+(setf *colors* (list "#000000"
+                     "#ff9da4"
+                     "#9ec400"
+                     "#ffeead"
+                     "#bbdaff"
+                     "#ebbbff"
+                     "#99ffff"
+                     "#ffffff"))
+(update-color-map (current-screen))
 
 (init-load-path "/home/nnitrx/.stumpwm.d/modules")
 
 (load-module "ttf-fonts")
-(set-font (make-instance 'xft:font :family "mononoki" :subfamily "Regular" :size 11.5 :antialias T))
+(set-font (make-instance 'xft:font :family "Inconsolata" :subfamily "Regular" :size 11 :antialias T))
 
 (load-module "battery-portable")
+(setf *mode-line-background-color* "#002451")
+(setf *mode-line-foreground-color* "#ffffff")
+(setf *mode-line-border-color* "#002451")
 (setf *screen-mode-line-format* "[^B%n^b] %W ^> ^B%B %d^b")
 (setf *time-modeline-string* "%a %b %e %l:%M %P")
 (mode-line)
